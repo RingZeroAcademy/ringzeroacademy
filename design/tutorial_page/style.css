@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    color: black;
 }
 
 .header {
@@ -25,7 +27,6 @@
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2c3e50;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -78,7 +79,6 @@
     border: 1px solid lightgrey;
     border-radius: 6px;
     text-decoration: none;
-    color: black;
     font-size: 0.95rem;
     font-weight: 500;
     transition: all 0.2s;
@@ -93,7 +93,6 @@
 
 .auth-button.primary {
     background: cyan;
-    color: black;
     border-color: cyan;
 }
 
@@ -154,79 +153,47 @@
 
 .main-container {
     display: flex;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
-    gap: 30px;
 }
 
 .sidebar {
-    width: 280px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 24px;
-    height: fit-content;
+    width: 250px;
+    background-color: lightgrey;
+    height: 100vh;
     position: sticky;
-    top: 80px;
-    border: 1px solid #e9ecef;
-}
-
-.sidebar-nav {
-    margin-bottom: 30px;
 }
 
 .sidebar-title {
-    font-size: 14px;
-    font-weight: 600;
     text-transform: uppercase;
-    color: #6c757d;
-    margin-bottom: 16px;
+    padding: 20px 20px 0 20px;
+    margin-bottom: 10px;
     letter-spacing: 0.5px;
-}
-
-.sidebar-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-menu li {
-    margin-bottom: 4px;
 }
 
 .sidebar-link {
     display: block;
-    padding: 10px 12px;
-    color: #495057;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 15px;
+    padding: 5px 20px;
+    font-size: 17px;
     transition: all 0.2s ease;
 }
 
 .sidebar-link:hover {
-    background-color: #e9ecef;
-    color: #212529;
+    background-color: darkcyan;
+    color: white;
 }
 
 .sidebar-link.active {
-    background-color: #007bff;
+    background-color: darkcyan;
     color: white;
-    font-weight: 500;
-}
-
-.sidebar-section {
-    padding-top: 20px;
-    border-top: 1px solid #dee2e6;
 }
 
 .content {
     flex: 1;
     min-width: 0;
-    padding: 20px;
+    padding: 30px;
 }
 
 /* Responsive Design */
+/*
 @media (max-width: 992px) {
     .main-container {
         flex-direction: column;
@@ -253,3 +220,4 @@
         padding: 8px 10px;
     }
 }
+*/
