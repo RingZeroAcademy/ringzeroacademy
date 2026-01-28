@@ -6,9 +6,10 @@
 }
 
 :root {
-    --color-primary: #0b1622;
-    --color-elevated: #242f3d;
-    --color-secondary: #45525f;
+/*    --color-primary: #0b1622; */
+    --color-primary: #080f18;
+    --color-secondary: #253f4d;
+    --color-elevated: #355a6b;
 /*    --color-accent: #00ffff; */
     --color-accent: #0dcaf0;
 
@@ -20,6 +21,14 @@
     --text-success: #10b981;
     --text-error: #ef4444;
     --text-warning: #f59e0b;
+
+    --header-height: 80px;
+    --header-element-height: 35px;
+    --button-width: 80px;
+    --sidebar-width: 240px;
+    --sidebar-height: calc(100vh - var(--header-height));
+
+    --button-font-size: 1rem;
 }
 
 body {
@@ -29,20 +38,17 @@ body {
 .header {
     background-color: var(--color-primary);
     border-bottom: 1px solid var(--color-secondary);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--header-height);
     z-index: 100;
-/*    box-shadow: 0 1px 3px var(--color-secondary); */
-}
 
-.header-content {
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
 }
 
 .logo {
@@ -56,8 +62,8 @@ body {
 }
 
 .logo-icon {
-    width: 32px;
-    height: 32px;
+    height: var(--header-element-height);
+    width: var(--header-element-height);
     background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
     border-radius: 6px;
     display: flex;
@@ -76,10 +82,11 @@ body {
 .search-input {
     background-color: var(--color-secondary);
     width: 100%;
-    padding: 0.6rem 1rem;
+    height: var(--header-element-height);
+    padding: 0 1rem;
     border: 1px solid var(--color-secondary);
     border-radius: 6px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: all 0.2s;
 }
 
@@ -100,14 +107,18 @@ body {
 }
 
 .auth-button {
-    padding: 0.5rem 1.25rem;
     border: 1px solid;
     border-radius: 6px;
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--button-font-size);
+    font-weight: 600;
     transition: all 0.2s;
     cursor: pointer;
+    height: var(--header-element-height);
+    width: var(--button-width);
 }
 
 #loginButton {
@@ -182,15 +193,13 @@ body {
 }
 */
 
-.main-container {
-    display: flex;
-}
-
 .sidebar {
-    width: 250px;
     background-color: var(--color-secondary);
-    height: 100vh;
-    position: sticky;
+    width: var(--sidebar-width);
+    height: var(--sidebar-height);
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
 }
 
 .sidebar-title {
@@ -218,8 +227,9 @@ body {
 
 .content {
     flex: 1;
-    min-width: 0;
     padding: 30px;
+    margin-top: var(--header-height);
+    margin-left: var(--sidebar-width);
 }
 
 /* Responsive Design */
