@@ -202,6 +202,7 @@ body {
     width: var(--siderail-width);
     background-color: var(--color-secondary);
     padding: 8px;
+    z-index: 90;
 }
 
 .open-sidebar-button {
@@ -225,6 +226,7 @@ body {
     top: var(--header-height);
     left: 0;
     transition: transform 0.2s linear;
+    z-index: 100;
 }
 
 .sidebar.hidden {
