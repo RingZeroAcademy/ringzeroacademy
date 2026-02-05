@@ -6,21 +6,32 @@
 }
 
 :root {
-/*    --color-primary: #0b1622; */
-    --color-primary: #080f18;
-    --color-secondary: #253f4d;
-    --color-elevated: #355a6b;
-/*    --color-accent: #00ffff; */
-    --color-accent: #0dcaf0;
+    --background-color: #080f18;
+    --surface-1: #0f1b26;
+    --border-color: #1c3242;
+    --border-strong: #274a5f;
 
-    --text-primary: #ffffff;      /* Main content */
-    --text-secondary: #b0b0b0;    /* Supporting text */
-    --text-tertiary: #6b7280;     /* Timestamps, metadata */
-    --text-inverse: var(--color-primary);      /* On light/cyan backgrounds */
-    --text-link: var(--color-accent);
-    --text-success: #10b981;
-    --text-error: #ef4444;
-    --text-warning: #f59e0b;
+    --accent: #0dcaf0;
+    --accent-hover: #2dd6f5;
+    --accent-active: #0aa2c0;
+    --accent-soft: rgba(13, 202, 240, 0.12);
+
+    --primary-button-background: var(--accent);
+    --primary-button-text: #06202a;
+    --secondary-button-background: #132433;
+    --secondary-button-text: var(--text-primary);
+    --secondary-button-border: var(--border-color);
+    --ghost-button-background: rgb(0, 0, 0, 0);
+    --ghost-button-background-hover: var(--accent-soft);
+    --ghost-button-text: var(--text-primary);
+
+    --text-primary: #e6f1f7;
+    --text-secondary: #a9c0cf;
+    --text-muted: #6f8fa3;
+    --text-success: #2ecc71;
+    --text-warning: #f1c40f;
+    --text-error: #e74c3c;
+    --text-info: #0dcaf0;
 
     --header-height: 80px;
     --header-element-height: 35px;
@@ -32,13 +43,27 @@
     --button-font-size: 1rem;
 }
 
+
 body {
-    background-color: var(--color-primary);
+    background-color: var(--background-color);
+    font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+    body {
+        font-size: 1.0625rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    body {
+        font-size: 1.125rem;
+    }
 }
 
 .header {
-    background-color: var(--color-primary);
-    border-bottom: 1px solid var(--color-secondary);
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
     position: fixed;
     top: 0;
     left: 0;
@@ -65,7 +90,7 @@ body {
 .logo-icon {
     height: var(--header-element-height);
     width: var(--header-element-height);
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--background-color) 100%);
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -81,23 +106,23 @@ body {
 }
 
 .search-input {
-    background-color: var(--color-secondary);
+    background-color: var(--surface-1);
     width: 100%;
     height: var(--header-element-height);
     padding: 0 1rem;
-    border: 1px solid var(--color-secondary);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
     transition: all 0.2s;
 }
 
 .search-input::placeholder {
-    color: var(--text-secondary);
+    color: var(--text-muted);
 }
 
 .search-input:focus {
     outline: none;
-    border-color: var(--color-accent);
+    border-color: var(--accent-active);
 }
 
 .auth-section {
@@ -123,76 +148,27 @@ body {
 }
 
 #loginButton {
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary);
-    color: var(--text-primary);
+    background-color: var(--secondary-button-background);
+    border-color: var(--secondary-button-border);
+    color: var(--secondary-button-text);
 }
 
 #loginButton:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    border-color: var(--accent-hover);
+    color: var(--accent-hover);
 }
 
 #signupButton {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--text-inverse);
+    background-color: var(--primary-button-background);
+    border-color: var(--primary-button-background);
+    color: var(--primary-button-text);
 }
 
 #signupButton:hover {
-    background: #00ffff;
-    border-color: #00ffff;
-    color: var(--text-inverse);
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--primary-button-text);
 }
-
-/*
-.profile-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    gap: 0.75rem;
-    padding: 0.4rem 0.75rem;
-    border-radius: 8px;
-    transition: background 0.2s;
-}
-
-.profile-link:hover {
-    background: #f3f4f6;
-}
-
-.profile-pic {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #06b6d4;
-}
-
-.profile-name {
-    color: #4b5563;
-    font-weight: 500;
-    font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-    .header-content {
-        gap: 1rem;
-    }
-
-    .profile-name {
-        display: none;
-    }
-
-    .auth-section {
-        gap: 0.5rem;
-    }
-
-    .auth-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-}
-*/
 
 .siderail {
     position: fixed;
@@ -200,7 +176,7 @@ body {
     left: 0;
     height: var(--sidebar-height);
     width: var(--siderail-width);
-    background-color: var(--color-secondary);
+    background-color: var(--surface-1);
     padding: 8px;
     z-index: 90;
 }
@@ -208,18 +184,17 @@ body {
 .open-sidebar-button {
     width: 32px;
     height: 32px;
-    background-color: var(--color-secondary);
-    border: 1px solid white;
+    background-color: var(--ghost-button-background);
+    border: none;
     border-radius: 6px;
 }
 
 .open-sidebar-button:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    background-color: var(--ghost-button-background-hover);
 }
 
 .sidebar {
-    background-color: var(--color-secondary);
+    background-color: var(--surface-1);
     width: var(--sidebar-width);
     height: var(--sidebar-height);
     position: fixed;
@@ -239,14 +214,13 @@ body {
     right: 10px;
     width: 32px;
     height: 32px;
-    background-color: var(--color-secondary);
-    border: 1px solid var(--text-primary);
+    background-color: var(--ghost-button-background);
+    border: none;
     border-radius: 6px;
 }
 
 .close-sidebar-button:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    background-color: var(--ghost-button-background-hover);
 }
 
 .sidebar-title {
@@ -264,12 +238,12 @@ body {
 }
 
 .sidebar-link:hover {
-    background-color: var(--color-elevated);
+    background-color: var(--accent-soft);
 }
 
 .sidebar-link.active {
-    background-color: var(--color-accent);
-    color: var(--text-inverse);
+    background-color: var(--accent-active);
+    color: var(--primary-button-text);
 }
 
 .content {
@@ -284,32 +258,11 @@ body {
     margin-left: var(--siderail-width);
 }
 
-/* Responsive Design */
-/*
-@media (max-width: 992px) {
-    .main-container {
-        flex-direction: column;
-    }
-    
+@media (max-width: 1024px) {
     .sidebar {
-        width: 100%;
-        position: static;
-        margin-bottom: 20px;
+        /*transform: translateX(-100%);*/
+    }
+    .content {
+        margin-left: var(--siderail-width);
     }
 }
-
-@media (max-width: 768px) {
-    .main-container {
-        padding: 10px;
-    }
-    
-    .sidebar {
-        padding: 16px;
-    }
-    
-    .sidebar-link {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
-}
-*/
