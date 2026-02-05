@@ -1,173 +1,249 @@
-# Color Usage Guide
+# Color Palette
 
-## Color Palette
+## Core Philosophy
 
-```css
-Ink Black: #0b1622
-Charcoal Blue: #45525f
-Cyan: #00ffff
+* **Surfaces** → small lightness differences (subtle contrast)
+* **Text** → high contrast (readability)
+* **Accent** → strong contrast (attention)
+* **Borders** → barely visible
+* **States** → systematic (hover, active, disabled)
+
+```
+Background → Surfaces → Borders → Text → Accent
+(low contrast)                      (high contrast)
 ```
 
-## The 60-30-10 Rule Application
+---
 
-The website will use the 60-30-10 rule to create visual balance. Ink Black covers 60% of the design, Charcoal Blue covers 30%, and Cyan covers 10%.
+## Surface Colors (Layout & Containers)
 
-## Ink Black (#0b1622) - 60% Dominant Color
+These are “slightly brighter than background” variants.
 
-Use Ink Black for large areas and backgrounds. This color creates the foundation of your dark mode design.
+### Background (base)
 
-**Where to use Ink Black:**
+```
+--bg-0: #080f18
+```
 
-- Main page background
-- Header background
-- Footer background
-- Modal and popup backgrounds
-- Dropdown menu backgrounds
-- Main content area background
+Use for:
 
-**Why this works:** The subtle blue tint in Ink Black reduces eye strain compared to pure black. It creates a professional, modern appearance suitable for tutorial content.
+* main page background
+* deepest layer
 
-## Charcoal Blue (#45525f) - 30% Secondary Color
+### Sidebar / Primary surface
 
-Use Charcoal Blue for secondary elements and containers. This color provides structure and organization to your content.
+```
+--surface-1: #0f1b26
+```
 
-**Where to use Charcoal Blue:**
+Use for:
 
-- Navigation bar background
-- Sidebar background
-- Card backgrounds (for tutorial listings, code examples, tip boxes)
-- Section dividers and borders
-- Table headers
-- Input field backgrounds
-- Secondary button backgrounds
-- Code block backgrounds
-- Comment sections
-- Breadcrumb backgrounds
+* sidebar
+* top navigation bar
+* main panels
 
-**Why this works:** Charcoal Blue creates clear separation between different content sections. It provides enough contrast against Ink Black to define areas without being harsh on the eyes.
+Why: subtle elevation above background.
 
-## Cyan (#00ffff) - 10% Accent Color
+### Cards / Panels / Sections
 
-Use Cyan sparingly for elements that need attention. This bright color guides users to important actions and information.
+```
+--surface-2: #132433
+```
 
-**Where to use Cyan:**
+Use for:
 
-- Primary call-to-action buttons (such as "Start Tutorial", "Next Lesson", "Download")
-- Active navigation links
-- Hyperlinks in text
-- Hover states on interactive elements
-- Current page indicator in navigation
-- Icons (sparingly)
-- Progress indicators and completion badges
-- Section headings (use with restraint)
-- Focus borders on form inputs
-- Loading indicators
-- Important notifications
-- Highlighting active code lines in examples
+* cards
+* modals
+* dropdowns
+* content blocks
 
-**Why this works:** The bright Cyan draws the eye immediately. Using it only for important elements ensures users know where to click and what to read next.
+### Elevated surface (dialogs, popovers)
+
+```
+--surface-3: #172c3d
+```
+
+Use for:
+
+* modals
+* popovers
+* floating UI
+
+---
+
+## Border Colors
+
+Borders must be subtle, not loud.
+
+### Default border
+
+```
+--border-1: #1c3242
+```
+
+Use for:
+
+* card borders
+* input borders
+* sidebar separators
+
+### Strong border (focus / emphasis)
+
+```
+--border-2: #274a5f
+```
+
+Use for:
+
+* focused inputs
+* active panels
+* selected items
+
+---
 
 ## Text Colors
 
-Proper text colors ensure readability and accessibility.
+### Primary text
 
-**Primary Text (Main Content):**
-- Use white (#ffffff) or very light gray (#e4e4e4) on Ink Black backgrounds
-- Use white (#ffffff) on Charcoal Blue backgrounds
-- Maintain minimum 4.5:1 contrast ratio
+```
+--text-1: #e6f1f7
+```
 
-**Secondary Text (Less Important Information):**
-- Use light gray (#a0a0a0 or #b0b0b0) on Ink Black backgrounds
-- Use for timestamps, metadata, captions, and helper text
+Use for:
 
-**Link Text:**
-- Use Cyan (#00ffff) for all clickable links
-- Add underline on hover for additional clarity
-- Never use Cyan for non-clickable text
+* headings
+* main content
 
-**Heading Text:**
-- Use white (#ffffff) for main headings (H1, H2)
-- Consider Cyan for accent headings, but use sparingly
-- Ensure headings stand out through size and weight, not just color
+High contrast on #080f18.
 
-## Functional Color States
+### Secondary text
 
-These colors indicate specific states and feedback to users.
+```
+--text-2: #a9c0cf
+```
 
-**Success Messages:**
-- Use green (#10b981 or similar) for successful actions
-- Examples: "Tutorial completed", "Progress saved"
+Use for:
 
-**Error Messages:**
-- Use red (#ef4444 or similar) for errors and warnings
-- Examples: "Invalid input", "Connection failed"
+* descriptions
+* labels
+* metadata
 
-**Warning Messages:**
-- Use orange or yellow (#f59e0b or similar) for caution
-- Examples: "This will delete your progress", "Unsaved changes"
+### Muted text
 
-**Information Messages:**
-- Use Cyan (#00ffff) for helpful information
-- Examples: "Pro tip:", "Did you know?"
+```
+--text-3: #6f8fa3
+```
 
-## Practical Examples
+Use for:
 
-### Tutorial Card Design
+* placeholders
+* disabled text
+* hints
 
-- Background: Charcoal Blue (#45525f)
-- Border: 1-2px Ink Black (#0b1622)
-- Title: White (#ffffff)
-- Description text: Light gray (#b0b0b0)
-- "Start Tutorial" button: Cyan (#00ffff) background with Ink Black text
-- Duration/difficulty labels: Light gray (#a0a0a0)
+---
 
-### Navigation Bar
+## Accent System
 
-- Background: Charcoal Blue (#45525f)
-- Links: White (#ffffff)
-- Active/current page link: Cyan (#00ffff)
-- Hover state: Cyan (#00ffff) with slight transparency
-- Logo: Cyan (#00ffff) accent elements
+Accent:
 
-### Code Block Example
+```
+--accent: #0dcaf0
+```
 
-- Background: Charcoal Blue (#45525f)
-- Border: Darker shade or Cyan accent on left side
-- Code text: Light gray or white with syntax highlighting
-- Line numbers: Dimmed light gray (#6b7280)
-- Active line highlight: Lighter Charcoal Blue or subtle Cyan tint
+### Accent hover (slightly brighter)
 
-### Form Elements
+```
+--accent-hover: #2dd6f5
+```
 
-- Input background: Charcoal Blue (#45525f)
-- Input text: White (#ffffff)
-- Input border: Darker gray (default state)
-- Focus border: Cyan (#00ffff)
-- Placeholder text: Medium gray (#9ca3af)
-- Submit button: Cyan (#00ffff) background
+### Accent active (slightly darker)
 
-## Important Guidelines
+```
+--accent-active: #0aa2c0
+```
 
-**Do:**
-- Use Cyan for all primary actions and important interactive elements
-- Maintain consistent color usage throughout the website
-- Test all color combinations for sufficient contrast
-- Use white or very light gray for main text content
-- Reserve Cyan for elements that require user attention
+Use for:
 
-**Do Not:**
-- Use Cyan for large text blocks (it strains the eyes)
-- Mix functional colors (do not use red for success or green for errors)
-- Use color alone to convey information (add icons or text labels)
-- Use too many shades of each color (stick to your defined palette)
-- Apply Cyan to more than 10-15% of your design
+* primary buttons
+* links
+* highlights
+* toggles
+* progress bars
 
-## Accessibility Reminders
+### Accent subtle (background tint)
 
-- Always check that text has sufficient contrast against its background
-- Do not rely on color alone to indicate interactive elements (use underlines, borders, or icons)
-- Provide hover and focus states for all clickable elements
-- Test your website with color blindness simulators
-- Ensure all important content is readable without color
+```
+--accent-soft: rgba(13, 202, 240, 0.12)
+```
+
+Use for:
+
+* selected rows
+* badges
+* hover backgrounds
+
+---
+
+## Semantic Colors (Status States)
+
+These are tuned for dark UI.
+
+### Success
+
+```
+--success: #2ecc71
+```
+
+### Warning
+
+```
+--warning: #f1c40f
+```
+
+### Error
+
+```
+--danger: #e74c3c
+```
+
+### Info (aligned with the accent)
+
+```
+--info: #0dcaf0
+```
+
+Usage:
+
+* alerts
+* validation
+* badges
+* notifications
+
+---
+
+## Button Color System
+
+### Primary button
+
+```
+background: #0dcaf0
+text: #06202a
+```
+
+### Secondary button
+
+```
+background: #132433
+text: #e6f1f7
+border: #1c3242
+```
+
+### Ghost button
+
+```
+background: transparent
+text: #a9c0cf
+hover background: #0f1b26
+```
 
 ---
