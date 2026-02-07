@@ -20,22 +20,9 @@ Having 3 tiers keeps complexity low while covering 95% of devices.
 | Tablet      | `1.0625rem` |
 | Desktop     | `1.125rem`  |
 
-**Rationale**
-
-* Mobile stays at 16px to avoid zoom fatigue.
-* Desktop increases slightly to reduce eye strain during long reading sessions.
-
-```css
-body {
-  font-size: 1rem;
-}
-```
-
-Override at breakpoints.
-
 ---
 
-## 3. Headings (Clear Information Hierarchy)
+## 3. Headings
 
 ### H1 – Page Title
 
@@ -78,7 +65,7 @@ Scale down at smaller breakpoints.
 
 ---
 
-## 4. Secondary Text (Meta Information)
+## 4. Secondary Text
 
 Used for:
 
@@ -86,14 +73,13 @@ Used for:
 * Author info
 * Notes
 * Descriptions under headings
+* Navigation or menu text
 
 | Screen  | Size        |
 | ------- | ----------- |
 | Mobile  | `0.875rem`  |
 | Tablet  | `0.9375rem` |
 | Desktop | `1rem`      |
-
-This text should be **visually subordinate**, not hard to read.
 
 ```css
 .secondary-text {
@@ -138,18 +124,6 @@ button {
 
 ---
 
-## 7. Navigation / Menu Text
-
-| Screen  | Size        |
-| ------- | ----------- |
-| Mobile  | `0.875rem`  |
-| Tablet  | `0.9375rem` |
-| Desktop | `1rem`      |
-
-Keep navigation compact to preserve content density.
-
----
-
 ## 8. Footnotes / Legal / Low-Priority Text
 
 | Screen | Size                  |
@@ -164,11 +138,10 @@ small {
 
 ---
 
-## 9. Strategic Guidance (Direct and Practical)
+## 9. Strategic Guidance
 
 * Do **not** shrink body text to fit content. Adjust layout instead.
 * Use **line-height (1.5–1.7)** to improve comprehension.
-* Avoid excessive heading levels. Three is enough for tutorials.
-* Consistency beats creativity here.
+* Avoid excessive heading levels.
 
 ---
