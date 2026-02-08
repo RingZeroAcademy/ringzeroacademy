@@ -64,7 +64,6 @@ button, .button {
     left: 0;
     width: 100vw;
     height: var(--header-height);
-    z-index: 100;
 
     padding: 0 2rem 0 3rem;
     display: flex;
@@ -186,11 +185,11 @@ button, .button {
     top: var(--header-height);
     left: 0;
     transition: transform 0.2s linear;
-    z-index: 100;
+    transform: translateX(-100%);
 }
 
-.sidebar.hidden {
-    transform: translateX(-100%);
+.sidebar.display {
+    transform: translateX(0);
 }
 
 .sidebar-title {
@@ -218,12 +217,12 @@ button, .button {
     flex: 1;
     padding: 30px;
     margin-top: var(--header-height);
-    margin-left: var(--sidebar-width);
+    margin-left: 0;
     transition: all 0.2s linear;
 }
 
-.content.expanded {
-    margin-left: 0;
+.content.shrink {
+    margin-left: var(--sidebar-width);
 }
 
 @media (min-width: 641px) {
