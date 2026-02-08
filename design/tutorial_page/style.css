@@ -23,7 +23,7 @@
     --secondary-button-border: var(--border-color);
     --ghost-button-background: rgb(0, 0, 0, 0);
     --ghost-button-background-hover: var(--accent-soft);
-    --ghost-button-text: var(--text-primary);
+    --ghost-button-text: var(--text-muted);
 
     --text-primary: #e6f1f7;
     --text-secondary: #a9c0cf;
@@ -38,7 +38,6 @@
     --button-width: 80px;
     --sidebar-width: 260px;
     --sidebar-height: calc(100vh - var(--header-height));
-    --siderail-width: 48px;
 
     --button-font-size: 1rem;
 }
@@ -179,29 +178,6 @@ button, .button {
     color: var(--primary-button-text);
 }
 
-.siderail {
-    position: fixed;
-    top: var(--header-height);
-    left: 0;
-    height: var(--sidebar-height);
-    width: var(--siderail-width);
-    background-color: var(--surface-1);
-    padding: 8px;
-    z-index: 90;
-}
-
-.open-sidebar-button {
-    width: 32px;
-    height: 32px;
-    background-color: var(--ghost-button-background);
-    border: none;
-    border-radius: 6px;
-}
-
-.open-sidebar-button:hover {
-    background-color: var(--ghost-button-background-hover);
-}
-
 .sidebar {
     background-color: var(--surface-1);
     width: var(--sidebar-width);
@@ -215,22 +191,6 @@ button, .button {
 
 .sidebar.hidden {
     transform: translateX(-100%);
-}
-
-.close-sidebar-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 32px;
-    height: 32px;
-    background-color: var(--ghost-button-background);
-/*    color: var(--ghost-button-text); */
-    border: none;
-    border-radius: 6px;
-}
-
-.close-sidebar-button:hover {
-    background-color: var(--ghost-button-background-hover);
 }
 
 .sidebar-title {
@@ -263,7 +223,7 @@ button, .button {
 }
 
 .content.expanded {
-    margin-left: var(--siderail-width);
+    margin-left: 0;
 }
 
 @media (min-width: 641px) {
