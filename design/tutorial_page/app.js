@@ -7,7 +7,7 @@ toggleSidebarButton.addEventListener("click", event => {
 });
 
 // Sidebar responsiveness.
-const windowSizeQuery = window.matchMedia("(min-width: 641px)");
+const windowSizeQuery = window.matchMedia("(min-width: 769px)");
 function toggleSidebar(event) {
     /*
     Hides or displays the sidebar based on the screen size.

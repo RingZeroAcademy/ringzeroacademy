@@ -34,12 +34,10 @@
     --text-info: #0dcaf0;
 
     --header-height: 80px;
-    --header-element-height: 35px;
-    --button-width: 80px;
+    --header-element-height: 2.25rem;
     --sidebar-width: 260px;
     --sidebar-height: calc(100vh - var(--header-height));
 
-    --button-font-size: 1rem;
 }
 
 body {
@@ -56,26 +54,30 @@ button, .button {
 }
 .secondary-text { font-size: 0.875rem; }
 
-.header {
-    background-color: var(--background-color);
-    border-bottom: 1px solid var(--border-color);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: var(--header-height);
-
-    padding: 0 2rem 0 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.primary-button {
+    border: 1px solid var(--primary-button-background);
+    background-color: var(--primary-button-background);
+    color: var(--primary-button-text);
 }
 
-.toggle-sidebar {
-    position: absolute;
-    left: 0.5rem;
-    width: var(--header-element-height);
-    height: var(--header-element-height);
+.primary-button:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--primary-button-text);
+}
+
+.secondary-button {
+    border: 1px solid var(--secondary-button-border);
+    background-color: var(--secondary-button-background);
+    color: var(--secondary-button-text);
+}
+
+.secondary-button:hover {
+    border-color: var(--accent-hover);
+    color: var(--accent-hover);
+}
+
+.ghost-button {
     background-color: var(--ghost-button-background);
     color: var(--ghost-button-text);
     border: none;
@@ -85,96 +87,143 @@ button, .button {
     justify-content: center;
 }
 
-.toggle-sidebar svg {
+.ghost-button svg {
     stroke: var(--ghost-button-text);
 }
 
-.toggle-sidebar:hover {
+.ghost-button:hover {
     background-color: var(--ghost-button-background-hover);
 }
 
-.logo {
-    color: var(--text-primary);
-    text-decoration: none;
-    display: flex;
+.header {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--header-height);
+
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 0.5rem;
-    flex-shrink: 0;
 }
 
-.logo-icon {
-    height: var(--header-element-height);
-    width: var(--header-element-height);
-    background: linear-gradient(135deg, var(--accent) 0%, var(--background-color) 100%);
-    border-radius: 6px;
-    display: inline;
-}
-
-.search-container {
-    flex: 1;
-    max-width: 500px;
-}
-
-.search-input {
-    background-color: var(--surface-1);
-    width: 100%;
-    height: var(--header-element-height);
-    padding: 0 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    transition: all 0.2s;
-}
-
-.search-input::placeholder {
-    color: var(--text-muted);
-}
-
-.search-input:focus {
-    outline: none;
-    border-color: var(--accent-active);
-}
-
-.auth-section {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-shrink: 0;
-}
-
+.logo,
+.search-input,
 .auth-button {
-    border: 1px solid;
-    border-radius: 6px;
-    text-decoration: none;
+    display: none;
+}
+
+.toggle-sidebar,
+.search-button {
+    width: var(--header-element-height);
+    height: var(--header-element-height);
+}
+
+.header-mid {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
-    cursor: pointer;
-    height: var(--header-element-height);
-    width: var(--button-width);
 }
 
-#loginButton {
-    background-color: var(--secondary-button-background);
-    border-color: var(--secondary-button-border);
-    color: var(--secondary-button-text);
+.name {
+    text-decoration: none;
 }
 
-#loginButton:hover {
-    border-color: var(--accent-hover);
-    color: var(--accent-hover);
+/*
+Phones up to 768px
+Tablets up to 1024px
+Laptops and desktops higher than 1025px
+*/
+@media (min-width: 769px) {
+    .name,
+    .search-button {
+        display: none;
+    }
+
+    .logo,
+    .search-input,
+    .auth-button {
+        display: inline;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        text-decoration: none;
+    }
+
+    .logo-icon {
+        height: var(--header-element-height);
+        width: var(--header-element-height);
+        background: linear-gradient(135deg, var(--accent) 0%, var(--background-color) 100%);
+        border-radius: 6px;
+        display: inline;
+    }
+    
+    .search-container {
+        flex: 1;
+        max-width: 320px;
+    }
+
+    .search-input {
+        width: 100%;
+        height: var(--header-element-height);
+        background-color: var(--surface-1);
+        padding: 0 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        transition: all 0.2s;
+    }
+
+    .search-input::placeholder {
+        color: var(--text-muted);
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: var(--accent-active);
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .auth-button {
+        border-radius: 6px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        cursor: pointer;
+        height: var(--header-element-height);
+        width: 70px;
+    }
 }
 
-#signupButton {
-    background-color: var(--primary-button-background);
-    border-color: var(--primary-button-background);
-    color: var(--primary-button-text);
-}
+@media (min-width: 1025px) {
+    .search-container {
+        max-width: 520px;
+    }
 
-#signupButton:hover {
-    background-color: var(--accent-hover);
-    border-color: var(--accent-hover);
-    color: var(--primary-button-text);
+    .auth-button {
+        width: 80px;
+    }
 }
 
 .sidebar {
@@ -225,7 +274,7 @@ button, .button {
     margin-left: var(--sidebar-width);
 }
 
-@media (min-width: 641px) {
+@media (min-width: 769px) {
     body { font-size: 1.0625rem; }
     h1 { font-size: 2.25rem; }
     h2 { font-size: 1.75rem; }
