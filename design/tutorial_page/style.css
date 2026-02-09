@@ -7,37 +7,23 @@
 
 :root {
     --background-color: #080f18;
-    --surface-1: #0f1b26;
-    --border-color: #1c3242;
-    --border-strong: #274a5f;
+    --surface-background-1: #0f1b26;
+    --surface-background-2: #132433;
+    --border-color-1: #1c3242;
 
     --accent: #0dcaf0;
     --accent-hover: #2dd6f5;
     --accent-active: #0aa2c0;
     --accent-soft: rgba(13, 202, 240, 0.12);
 
-    --primary-button-background: var(--accent);
-    --primary-button-text: #06202a;
-    --secondary-button-background: #132433;
-    --secondary-button-text: var(--text-primary);
-    --secondary-button-border: var(--border-color);
-    --ghost-button-background: rgb(0, 0, 0, 0);
-    --ghost-button-background-hover: var(--accent-soft);
-    --ghost-button-text: var(--text-muted);
-
     --text-primary: #e6f1f7;
     --text-secondary: #a9c0cf;
     --text-muted: #6f8fa3;
-    --text-success: #2ecc71;
-    --text-warning: #f1c40f;
-    --text-error: #e74c3c;
-    --text-info: #0dcaf0;
 
     --header-height: 80px;
     --header-element-height: 2.25rem;
     --sidebar-width: 260px;
     --sidebar-height: calc(100vh - var(--header-height));
-
 }
 
 body {
@@ -55,21 +41,18 @@ button, .button {
 .secondary-text { font-size: 0.875rem; }
 
 .primary-button {
-    border: 1px solid var(--primary-button-background);
-    background-color: var(--primary-button-background);
-    color: var(--primary-button-text);
+    background-color: var(--accent);
+    color: #06202a
 }
 
 .primary-button:hover {
     background-color: var(--accent-hover);
-    border-color: var(--accent-hover);
-    color: var(--primary-button-text);
 }
 
 .secondary-button {
-    border: 1px solid var(--secondary-button-border);
-    background-color: var(--secondary-button-background);
-    color: var(--secondary-button-text);
+    background-color: var(--surface-background-2);
+    border: 1px solid var(--border-color-1);
+    color: var(--text-primary);
 }
 
 .secondary-button:hover {
@@ -78,8 +61,8 @@ button, .button {
 }
 
 .ghost-button {
-    background-color: var(--ghost-button-background);
-    color: var(--ghost-button-text);
+    background-color: transparent;
+    color: var(--text-secondary);
     border: none;
     border-radius: 6px;
     display: flex;
@@ -88,16 +71,16 @@ button, .button {
 }
 
 .ghost-button svg {
-    stroke: var(--ghost-button-text);
+    stroke: var(--text-secondary);
 }
 
 .ghost-button:hover {
-    background-color: var(--ghost-button-background-hover);
+    background-color: var(--surface-background-1);
 }
 
 .header {
     background-color: var(--background-color);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color-1);
     position: fixed;
     top: 0;
     left: 0;
@@ -181,9 +164,9 @@ Laptops and desktops higher than 1025px
     .search-input {
         width: 100%;
         height: var(--header-element-height);
-        background-color: var(--surface-1);
+        background-color: var(--surface-background-1);
         padding: 0 1rem;
-        border: 1px solid var(--border-color);
+        border: 1px solid var(--border-color-1);
         border-radius: 6px;
         transition: all 0.2s;
     }
@@ -227,7 +210,7 @@ Laptops and desktops higher than 1025px
 }
 
 .sidebar {
-    background-color: var(--surface-1);
+    background-color: var(--surface-background-1);
     width: var(--sidebar-width);
     height: var(--sidebar-height);
     position: fixed;

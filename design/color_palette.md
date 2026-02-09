@@ -15,14 +15,12 @@ Background → Surfaces → Borders → Text → Accent
 
 ---
 
-## Surface Colors (Layout & Containers)
-
-These are “slightly brighter than background” variants.
+## Surface Colors
 
 ### Background (base)
 
 ```
---bg-0: #080f18
+--background-color: #080f18
 ```
 
 Use for:
@@ -32,8 +30,10 @@ Use for:
 
 ### Sidebar / Primary surface
 
+Subtle elevation above background.
+
 ```
---surface-1: #0f1b26
+--surface-background-1: #0f1b26
 ```
 
 Use for:
@@ -42,12 +42,10 @@ Use for:
 * top navigation bar
 * main panels
 
-Why: subtle elevation above background.
-
 ### Cards / Panels / Sections
 
 ```
---surface-2: #132433
+--surface-background-2: #132433
 ```
 
 Use for:
@@ -60,7 +58,7 @@ Use for:
 ### Elevated surface (dialogs, popovers)
 
 ```
---surface-3: #172c3d
+--surface-background-3: #172c3d
 ```
 
 Use for:
@@ -78,7 +76,7 @@ Borders must be subtle, not loud.
 ### Default border
 
 ```
---border-1: #1c3242
+--border-color-1: #1c3242
 ```
 
 Use for:
@@ -90,12 +88,11 @@ Use for:
 ### Strong border (focus / emphasis)
 
 ```
---border-2: #274a5f
+--border-color-2: #274a5f
 ```
 
 Use for:
 
-* focused inputs
 * active panels
 * selected items
 
@@ -106,7 +103,7 @@ Use for:
 ### Primary text
 
 ```
---text-1: #e6f1f7
+--text-primary: #e6f1f7
 ```
 
 Use for:
@@ -119,7 +116,7 @@ High contrast on #080f18.
 ### Secondary text
 
 ```
---text-2: #a9c0cf
+--text-secondary: #a9c0cf
 ```
 
 Use for:
@@ -131,7 +128,7 @@ Use for:
 ### Muted text
 
 ```
---text-3: #6f8fa3
+--text-muted: #6f8fa3
 ```
 
 Use for:
@@ -150,18 +147,6 @@ Accent:
 --accent: #0dcaf0
 ```
 
-### Accent hover (slightly brighter)
-
-```
---accent-hover: #2dd6f5
-```
-
-### Accent active (slightly darker)
-
-```
---accent-active: #0aa2c0
-```
-
 Use for:
 
 * primary buttons
@@ -169,6 +154,22 @@ Use for:
 * highlights
 * toggles
 * progress bars
+
+### Accent hover (slightly brighter)
+
+```
+--accent-hover: #2dd6f5
+```
+
+Use when mouse hovers over an element with background set to `var(--accent)`.
+
+### Accent active (slightly darker)
+
+```
+--accent-active: #0aa2c0
+```
+
+Use for selected/active items like search input border.
 
 ### Accent subtle (background tint)
 
@@ -178,7 +179,6 @@ Use for:
 
 Use for:
 
-* selected rows
 * badges
 * hover backgrounds
 
@@ -226,24 +226,24 @@ Usage:
 ### Primary button
 
 ```
-background: #0dcaf0
-text: #06202a
+background-color: var(--accent);
+color: #06202a
 ```
 
 ### Secondary button
 
 ```
-background: #132433
-text: #e6f1f7
-border: #1c3242
+background-color: var(--surface-background-2);
+color: var(--text-primary);
+border: var(--border-color-1);
 ```
 
 ### Ghost button
 
 ```
-background: transparent
-text: #a9c0cf
-hover background: #0f1b26
+background-color: transparent
+color: var(--text-secondary);
+hover background: var(--surface-background-1);
 ```
 
 ---
